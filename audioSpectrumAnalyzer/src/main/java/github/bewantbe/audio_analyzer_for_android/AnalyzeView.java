@@ -1236,7 +1236,7 @@ public class AnalyzeView extends View {
     state.nsc = spectrogramColors.length;
     state.nFP = nFreqPoints;
     state.nSCP = spectrogramColorsPt;
-    state.tmpSC = spectrogramColors;
+//    state.tmpSC = spectrogramColors; // Saving this huge array causes the state to be too large
     Log.i(TAG, "onSaveInstanceState(): xShift = " + xShift + "  xZoom = " + xZoom + "  yShift = " + yShift + "  yZoom = " + yZoom);
     return state;
   }
@@ -1262,7 +1262,7 @@ public class AnalyzeView extends View {
 
       this.nFreqPoints = s.nFP;
       this.spectrogramColorsPt = s.nSCP;
-      this.spectrogramColors = s.tmpSC;
+//      this.spectrogramColors = s.tmpSC; // See onSaveInstanceState
       this.spectrogramColorsShifting = new int[this.spectrogramColors.length];
       Log.i(TAG, "onRestoreInstanceState(): xShift = " + xShift + "  xZoom = " + xZoom + "  yShift = " + yShift + "  yZoom = " + yZoom);
     } else {
